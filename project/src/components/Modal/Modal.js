@@ -89,7 +89,7 @@ let MyModal = (props) => {
             {projectList.map((project) => 
              <ProjectItem 
              onClick={() => {deleteItem(project)}} 
-             key={Date.now()} 
+             key={Date.now} 
              name={project.name}
              employee={project.employee}
              duration={project.duration}
