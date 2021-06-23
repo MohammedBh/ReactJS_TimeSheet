@@ -6,8 +6,8 @@ import "./Table.css"
 let Table = (props) => {
 
     let tableTitles = [
-        "project",
-        "employé",
+        "Project",
+        "Employé",
         "Durée",
         "Date début",
         "Date fin",
@@ -24,7 +24,7 @@ let Table = (props) => {
        })
 
 return(
-<section >
+<section class="bgTable">
     <div>
         <ul class="table">
             {titles}

@@ -7,7 +7,7 @@ import ProjectItem from "../ProjectItem/ProjectItem";
 
 let MyModal = (props) => {
 
-    
+
     let fetchedData = [];
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
@@ -25,18 +25,18 @@ let MyModal = (props) => {
         setIsOpen(false);
     }
 
-        return (
-       
+    return (
+
         <div>
-        <Button variant="primary" onClick={openModal}>
-            Add project
-        </Button>
-         <Modal isOpen={isOpen}> 
-        <form onSubmit={handleSubmit(onSubmit)}>
-        <ModalHeader closeButton>
-            Créer un nouveau projet
-        </ModalHeader>
-            <ModalBody>
+            <Button variant="primary" onClick={openModal}>
+                Add project
+            </Button>
+            <Modal isOpen={isOpen}>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <ModalHeader closeButton>
+                        Créer un nouveau projet
+                    </ModalHeader>
+                    <ModalBody>
                         <FormGroup>
                             <Label>Nom du project</Label>
                             <Input type="text" {...register("projectName")} />
@@ -63,16 +63,15 @@ let MyModal = (props) => {
                             Fermer
                         </Button>
                     </ModalFooter>
-        </form>
-        </Modal>
-        <div>
-            <ProjectItem name="test123"/>
+                </form>
+            </Modal>
+            <div>
+                <ProjectItem name="test123" />
+            </div>
         </div>
-        </div>
-       
 
-        )
+
+    )
 
 }
 export default MyModal;
-
