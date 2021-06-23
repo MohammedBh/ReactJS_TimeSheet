@@ -1,6 +1,9 @@
+.section1{
+    background-color: rgb(235, 235, 235);
+}
+
 .section1 div{
-    border: 1px solid;
     padding: 20px;
     margin: auto 40%;
-    margin-bottom: 20px;
+    color: rgb(44, 44, 44);
 }

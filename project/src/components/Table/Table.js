@@ -12,11 +12,9 @@ let Table = (props) => {
         "Date début",
         "Date fin",
         "Description"
-    ]
-
-    console.log(props);
+    ];
     
-       let titles = []
+       let titles = [];
 
        tableTitles.forEach(title => {
            console.log(title)

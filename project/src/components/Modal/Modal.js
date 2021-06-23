@@ -8,6 +8,8 @@ import ProjectItem from "../ProjectItem/ProjectItem";
 
 
 let MyModal = (props) => {
+   
+    let localProjects;
 
     let [projectList, setProjectList] = useState([]);
 
@@ -19,15 +21,28 @@ let MyModal = (props) => {
     // use form
     const { register, handleSubmit, unregister } = useForm();
 
+
+   
+    let checkLocalStorage = () => {
+        if(localStorage.getItem("projects") !== null) {
+            localProjects = localStorage.getItem("projects");
+            projectList = JSON.parse(localProjects);
+        }
+    }
+
+    checkLocalStorage();
+
     //function to push project into projectlist
     let addItemToList = (item) => {
         projectList.push(item);
+        localStorage.setItem("projects", JSON.stringify(projectList));
     }
 
     let deleteItem = (item) => {
         let index = projectList.indexOf(item);
         projectList.splice(index, 1);
         setDeletedItems(deletedItems + 1);
+        localStorage.setItem("projects", JSON.stringify(projectList));
     }
 
     //function to open modal

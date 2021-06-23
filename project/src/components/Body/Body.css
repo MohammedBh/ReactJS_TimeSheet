@@ -1,6 +1,6 @@
-
 button{
     padding: 10px;
     background: rgb(205, 197, 197);
     cursor: pointer;
+    border-radius: 10px;
 }
