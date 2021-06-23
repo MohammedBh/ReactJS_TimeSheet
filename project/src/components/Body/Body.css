@@ -1,24 +1,6 @@
-.table{
-    display: flex;
-    margin: 10px 0;
-    padding: 10px;
-    list-style-type: none;
-    justify-content: space-around;
-}
-.table li {
-    border-bottom: 1px solid ;
-    cursor: pointer;
-    padding: 0 20px ;
-}
+
 button{
     padding: 10px;
     background: rgb(205, 197, 197);
     cursor: pointer;
-}
-
-.section1 div{
-    border: 1px solid;
-    padding: 20px;
-    margin: auto 40%;
-    margin-bottom: 20px;
 }
