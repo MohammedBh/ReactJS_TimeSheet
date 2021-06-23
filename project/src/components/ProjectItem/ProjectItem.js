@@ -7,22 +7,19 @@ let ProjectItem = (props) => {
 
 return(
 <div>
-    {props.name}
-    {props.employee}
-    {props.duration}
-    {props.beginDate}
-    {props.endDate}
-    {props.description}
-    <button onClick={props.onClick}>delete</button>
+    <ul className="tableAjoute">
+      <li>{props.name}</li>
+      <li>{props.employee}</li>
+      <li>{props.duration}</li>
+      <li>{props.beginDate}</li>
+      <li>{props.endDate}</li>
+      <li>{props.description}</li>
+      <button onClick={props.onClick}>delete</button>
+    </ul>
+    
 </div>
 )
 }
 
 export default ProjectItem;
 
-  {/* {props.name}
-    {props.employee}
-    {props.duration}
-    {props.beginDate}
-    {props.endDate}
-    {props.description} */}
