@@ -8,7 +8,7 @@ import ProjectItem from "../ProjectItem/ProjectItem";
 
 
 let MyModal = (props) => {
-   
+
     let localProjects;
 
     let [projectList, setProjectList] = useState([]);
@@ -22,9 +22,9 @@ let MyModal = (props) => {
     const { register, handleSubmit, unregister } = useForm();
 
 
-   
+
     let checkLocalStorage = () => {
-        if(localStorage.getItem("projects") !== null) {
+        if (localStorage.getItem("projects") !== null) {
             localProjects = localStorage.getItem("projects");
             projectList = JSON.parse(localProjects);
         }
@@ -57,11 +57,13 @@ let MyModal = (props) => {
 
     return (
         <div>
-            <div>Deleted projects: {deletedItems}</div>
-            <br />
-            <button variant="primary" onClick={openModal}>
-                Add project
-            </button>
+            <div class="buttonBorder text-center mb-5">
+                <div>Deleted projects: {deletedItems}</div>
+                <br />
+                <button id="addProject" variant="primary" onClick={openModal}>
+                    Add project
+                </button>
+            </div>
             <Modal isOpen={isOpen}>
                 <form onSubmit={handleSubmit(addItemToList)}>
                     <ModalHeader>
@@ -100,18 +102,18 @@ let MyModal = (props) => {
                 </form>
             </Modal>
             <div>
-            {projectList.map((project) => 
-            <ProjectItem 
-            onClick={() => {deleteItem(project)}} 
-            key={Date.now} 
-            name={project.name}
-            employee={project.employee}
-            duration={project.duration}
-            beginDate={project.beginDate}
-            endDate={project.endDate}
-            description={project.description}
-            />)
-            }
+                {projectList.map((project) =>
+                    <ProjectItem
+                        onClick={() => { deleteItem(project) }}
+                        key={Date.now}
+                        name={project.name}
+                        employee={project.employee}
+                        duration={project.duration}
+                        beginDate={project.beginDate}
+                        endDate={project.endDate}
+                        description={project.description}
+                    />)
+                }
             </div>
         </div>
     )

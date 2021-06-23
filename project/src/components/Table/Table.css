@@ -18,3 +18,9 @@
     cursor: pointer;
     padding: 2px 20px ;
 }
+
+.tableAjoute button{
+    border: 0;
+    background: rgb(202, 49, 49);
+    color: white;
+}
