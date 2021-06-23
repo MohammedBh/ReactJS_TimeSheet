@@ -1,19 +1,9 @@
 footer {
     background-color: rgba(117, 117, 117, 0.664);
     bottom: 0 ;
-    padding: 10px 0px;
     position:absolute;
-    bottom:0;
-    width:100%;
-    padding-top:20px;
-    
+    width: 100%;
+    padding: 10px 0;
+    color: rgb(87, 87, 87);
 }
 
-footer > h3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 100%;
-    color: white;
-    margin: 0px;
-}

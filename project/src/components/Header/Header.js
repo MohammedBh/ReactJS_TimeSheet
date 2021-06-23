@@ -8,7 +8,7 @@ class Header extends React.Component {
 
         return(
             <header>
-                <nav class = 'navbar navbar-light bg-ligjht justify-content-center fixed-top '>
+                <nav class = 'navbar navbar-light bg-ligjht justify-content-center'>
                     <a class= 'navbar-brand' href ="#">
                         <img src={Logo} width="260" height="100" class="d-inline-block align-top" alt=""></img>
                     </a>
