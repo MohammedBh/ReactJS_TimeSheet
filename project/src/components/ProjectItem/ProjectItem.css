@@ -1,0 +1,13 @@
+
+.tableAjoute{
+    display: flex;
+    margin: 10px 0;
+    padding: 10px;
+    list-style-type: none;
+    justify-content: space-evenly;
+    border-bottom: 1px solid;
+    text-align: center;
+}
+.tableAjoute li {
+    padding: 2px 20px ;
+}

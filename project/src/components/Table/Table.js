@@ -11,8 +11,11 @@ let Table = (props) => {
         "Durée",
         "Date début",
         "Date fin",
-        "Description"
-    ];
+        "Description",
+        "Action"
+    ]
+
+    console.log(props);
     
        let titles = [];
 

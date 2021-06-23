@@ -64,7 +64,6 @@ let MyModal = (props) => {
             </button>
             <Modal isOpen={isOpen}>
                 <form onSubmit={handleSubmit(addItemToList)}>
-                  
                     <ModalHeader>
                         Créer un nouveau projet
                     </ModalHeader>
@@ -102,17 +101,17 @@ let MyModal = (props) => {
             </Modal>
             <div>
             {projectList.map((project) => 
-             <ProjectItem 
-             onClick={() => {deleteItem(project)}} 
-             key={Date.now} 
-             name={project.name}
-             employee={project.employee}
-             duration={project.duration}
-             beginDate={project.beginDate}
-             endDate={project.endDate}
-             description={project.description}
-             />)
-             }
+            <ProjectItem 
+            onClick={() => {deleteItem(project)}} 
+            key={Date.now} 
+            name={project.name}
+            employee={project.employee}
+            duration={project.duration}
+            beginDate={project.beginDate}
+            endDate={project.endDate}
+            description={project.description}
+            />)
+            }
             </div>
         </div>
     )
