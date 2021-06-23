@@ -14,8 +14,8 @@ let Body = (props) => {
         return (
             <div>
                 <Clock />
-                <MyModal />
                 <Table />
+                <MyModal />
             </div>
         )
     }

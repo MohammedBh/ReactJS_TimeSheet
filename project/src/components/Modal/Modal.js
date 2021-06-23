@@ -1,45 +1,62 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader, FormGroup, Input, Label } from "reactstrap"
 import { useForm } from "react-hook-form";
 import "./Modal.css"
 import ProjectItem from "../ProjectItem/ProjectItem";
 
+
+
 let MyModal = (props) => {
 
+    let [projectList, setProjectList] = useState([]);
 
-    let fetchedData = [];
-    const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => {
-        console.log(data);
-    };
-
-
+    //initiate state of modal
     const [isOpen, setIsOpen] = useState(false);
 
+    const [deletedItems, setDeletedItems] = useState(0);
+
+    // use form
+    const { register, handleSubmit, unregister } = useForm();
+
+    //function to push project into projectlist
+    let addItemToList = (item) => {
+        projectList.push(item);
+    }
+
+    let deleteItem = (item) => {
+        let index = projectList.indexOf(item);
+        projectList.splice(index, 1);
+        setDeletedItems(deletedItems + 1);
+    }
+
+    //function to open modal
     let openModal = () => {
         setIsOpen(true);
     }
 
+    //function to close modal
     let closeModal = () => {
         setIsOpen(false);
     }
 
     return (
-
         <div>
-            <Button variant="primary" onClick={openModal}>
+            <div>Deleted projects: {deletedItems}</div>
+            <br />
+            <button variant="primary" onClick={openModal}>
                 Add project
-            </Button>
+            </button>
             <Modal isOpen={isOpen}>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <ModalHeader closeButton>
+                <form onSubmit={handleSubmit(addItemToList)}>
+                  
+                    <ModalHeader>
                         Créer un nouveau projet
                     </ModalHeader>
                     <ModalBody>
                         <FormGroup>
                             <Label>Nom du project</Label>
-                            <Input type="text" {...register("projectName")} />
+                            <Input type="text" {...register("name")} />
                             <Input type="select" className="mt-3" {...register("employee")}>
                                 <option value="">--Choisis un employé stp frangin--</option>
                                 <option value="Mohamed">Mohamed</option>
@@ -48,29 +65,41 @@ let MyModal = (props) => {
                                 <option value="Oussama">Oussama</option>
                             </Input>
                             <Label className="mt-3">Durée du projet (Heures)</Label>
-                            <Input type="number" {...register("projectDuration")}> </Input>
+                            <Input type="number" {...register("duration")}> </Input>
                             <Label className="mt-3">Date debut</Label>
-                            <Input type="date" {...register("projectStartDate")}>jj-mm-yy</Input>
+                            <Input type="date" {...register("beginDate")}>jj-mm-yy</Input>
                             <Label className="mt-3">Date fin</Label>
-                            <Input type="date" {...register("projectEndDate")}>jj-mm-yy</Input>
+                            <Input type="date" {...register("endDate")}>jj-mm-yy</Input>
                             <Label className="mt-3">Description</Label>
-                            <Input type="textarea" {...register("projectDescription")}></Input>
+                            <Input type="textarea" {...register("description")}></Input>
                         </FormGroup>
                     </ModalBody>
                     <ModalFooter>
                         <Button variante="primary" type="submit">Ajouter</Button>
-                        <Button variant="secondary" onClick={closeModal}>
+                        <Button variant="secondary" onClick={() => {
+                            closeModal();
+                            unregister();
+                        }}>
                             Fermer
                         </Button>
                     </ModalFooter>
                 </form>
             </Modal>
             <div>
-                <ProjectItem name="test123" />
+            {projectList.map((project) => 
+             <ProjectItem 
+             onClick={() => {deleteItem(project)}} 
+             key={Date.now()} 
+             name={project.name}
+             employee={project.employee}
+             duration={project.duration}
+             beginDate={project.beginDate}
+             endDate={project.endDate}
+             description={project.description}
+             />)
+             }
             </div>
         </div>
-
-
     )
 
 }
