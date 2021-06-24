@@ -13,12 +13,12 @@ let MyModal = (props) => {
 
     let [projectList, setProjectList] = useState([]);
 
-    //initiate state of modal
+    //ouverture modal
     const [isOpen, setIsOpen] = useState(false);
 
     const [deletedItems, setDeletedItems] = useState(0);
 
-    // use form
+    // form
     const { register, handleSubmit, unregister } = useForm();
 
 
@@ -32,7 +32,7 @@ let MyModal = (props) => {
 
     checkLocalStorage();
 
-    //function to push project into projectlist
+    //function qui push project dans projectlist
     let addItemToList = (item) => {
         projectList.push(item);
         localStorage.setItem("projects", JSON.stringify(projectList));
@@ -45,12 +45,12 @@ let MyModal = (props) => {
         localStorage.setItem("projects", JSON.stringify(projectList));
     }
 
-    //function to open modal
+    //function qui ouvre le modal
     let openModal = () => {
         setIsOpen(true);
     }
 
-    //function to close modal
+    //function qui ferme le modal
     let closeModal = () => {
         setIsOpen(false);
     }
